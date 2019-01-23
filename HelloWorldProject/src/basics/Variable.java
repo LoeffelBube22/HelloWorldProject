@@ -44,6 +44,32 @@ public class Variable {
         System.out.println(longVar);
         //
         System.out.println(System.currentTimeMillis());
+        //
+        float floatVar;
+        floatVar = 10/3f;
+        System.out.println(floatVar);
+        System.out.println(Float.MIN_VALUE);
+        System.out.println(Float.MAX_VALUE);
+        //
+        double doubleVar;
+        doubleVar = 10/3d; // 10/3.0
+        System.out.println("Double: ");
+        System.out.println(doubleVar);
+        //
+        System.out.println("Float");
+        System.out.println(floatVar);
+        //
+        String stringVar;
+        stringVar = "Hallo Barrel Barry";
+        System.out.println(stringVar);
+        //
+        
+        
+        
+        
+        
+       
+        
         
       
         
