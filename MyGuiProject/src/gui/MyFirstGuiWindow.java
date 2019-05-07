@@ -24,6 +24,12 @@ public class MyFirstGuiWindow {
 	private Text plzTF;
 	private Text ortTF;
 	private Button btnAbbrechen;
+	private Label vornameOut;
+	private Label nachnameOut;
+	private Label strasseOut;
+	private Label hausnummerOut;
+	private Label plzOut;
+	private Label ortOut;
 
 	/**
 	 * Launch the application.
@@ -76,6 +82,13 @@ public class MyFirstGuiWindow {
 				System.out.println(hausnummerTF.getText());
 				System.out.println(plzTF.getText());
 				System.out.println(ortTF.getText());
+				//
+				getVornameOut().setText(getVornameTF().getText());
+				getNachnameOut().setText(getNachnameTF().getText());
+				getStrasseOut().setText(getStrasseTF().getText());
+				getHausnummerOut().setText(getHausnummerTF().getText());
+				getPlzOut().setText(getPlzTF().getText());
+				getOrtOut().setText(getOrtTF().getText());
 			}
 		});
 		btnMyBotton.setBounds(398, 10, 75, 25);
@@ -156,7 +169,68 @@ public class MyFirstGuiWindow {
 		});
 		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		composite.setBounds(115, 294, 164, 64);
+		
+		vornameOut = new Label(hausnummerL, SWT.NONE);
+		vornameOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		vornameOut.setBounds(301, 43, 75, 21);
+		
+		nachnameOut = new Label(hausnummerL, SWT.NONE);
+		nachnameOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		nachnameOut.setBounds(301, 76, 75, 21);
+		nachnameOut.setText("");
+		
+		strasseOut = new Label(hausnummerL, SWT.NONE);
+		strasseOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		strasseOut.setBounds(301, 112, 75, 21);
+		
+		hausnummerOut = new Label(hausnummerL, SWT.NONE);
+		hausnummerOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		hausnummerOut.setBounds(301, 147, 75, 21);
+		
+		plzOut = new Label(hausnummerL, SWT.NONE);
+		plzOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		plzOut.setBounds(301, 187, 75, 21);
+		
+		ortOut = new Label(hausnummerL, SWT.NONE);
+		ortOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		ortOut.setBounds(301, 217, 75, 21);
 		hausnummerL.setTabList(new Control[]{vornameTF, nachnameTF, strasseTF, hausnummerTF, plzTF, ortTF, btnMyBotton});
-
+		
+	}
+	public Label getVornameOut() {
+		return vornameOut;
+	}
+	public Label getNachnameOut() {
+		return nachnameOut;
+	}
+	public Text getVornameTF() {
+		return vornameTF;
+	}
+	public Text getNachnameTF() {
+		return nachnameTF;
+	}
+	public Label getStrasseOut() {
+		return strasseOut;
+	}
+	public Label getHausnummerOut() {
+		return hausnummerOut;
+	}
+	public Label getPlzOut() {
+		return plzOut;
+	}
+	public Label getOrtOut() {
+		return ortOut;
+	}
+	public Text getStrasseTF() {
+		return strasseTF;
+	}
+	public Text getHausnummerTF() {
+		return hausnummerTF;
+	}
+	public Text getPlzTF() {
+		return plzTF;
+	}
+	public Text getOrtTF() {
+		return ortTF;
 	}
 }
