@@ -250,4 +250,3 @@ public class MyFirstGuiWindow {
 	public Text getOrtTF() {
 		return ortTF;
 	}
-}
