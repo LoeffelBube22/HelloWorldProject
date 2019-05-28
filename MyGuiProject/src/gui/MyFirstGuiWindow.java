@@ -10,6 +10,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import data.Person;
 
 import org.eclipse.swt.widgets.Control;
@@ -211,6 +214,17 @@ public class MyFirstGuiWindow {
 		ortOut = new Label(hausnummerL, SWT.NONE);
 		ortOut.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		ortOut.setBounds(301, 217, 75, 21);
+		
+		Button btnNewButton = new Button(hausnummerL, SWT.NONE);
+		btnNewButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+				System.out.println(gson.toJson(Person.getListe()));
+			}
+		});
+		btnNewButton.setBounds(398, 372, 75, 25);
+		btnNewButton.setText("Json");
 		hausnummerL.setTabList(new Control[]{vornameTF, nachnameTF, strasseTF, hausnummerTF, plzTF, ortTF, btnMyBotton});
 		
 	}
@@ -249,4 +263,5 @@ public class MyFirstGuiWindow {
 	}
 	public Text getOrtTF() {
 		return ortTF;
-	}
+	}	
+}
