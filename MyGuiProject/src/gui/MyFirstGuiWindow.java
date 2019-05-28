@@ -1,8 +1,14 @@
 package gui;
 
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -36,6 +42,7 @@ public class MyFirstGuiWindow {
 	private Label hausnummerOut;
 	private Label plzOut;
 	private Label ortOut;
+	private Button btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -221,10 +228,35 @@ public class MyFirstGuiWindow {
 			public void widgetSelected(SelectionEvent e) {
 				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				System.out.println(gson.toJson(Person.getListe()));
+				File jsonFile;
+				try {
+					jsonFile = File.createTempFile("wpfinf-json",".Jakiri");
+				
+			FileWriter fw = new FileWriter(jsonFile);
+				gson.toJson(Person.getListe(),fw);
+				fw.flush();
+				fw.close();
+				//explorer öffnen %TEMP%
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButton.setBounds(398, 372, 75, 25);
 		btnNewButton.setText("Json");
+		
+		btnNewButton_1 = new Button(hausnummerL, SWT.NONE);
+		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			FileDialog fd = new FileDialog(hausnummerL, SWT.OPEN);
+				fd.setFilterExtensions(new String[] {"Jakiri"});
+				fd.setFilterPath("%TEMP%");
+				fd.open();
+			}
+		});
+		btnNewButton_1.setBounds(398, 331, 75, 25);
+		btnNewButton_1.setText("Load");
 		hausnummerL.setTabList(new Control[]{vornameTF, nachnameTF, strasseTF, hausnummerTF, plzTF, ortTF, btnMyBotton});
 		
 	}
