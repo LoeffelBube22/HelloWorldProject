@@ -6,6 +6,7 @@ public class Person {
 	
 	private static ArrayList<Person> Liste = new ArrayList<Person>();
 	
+	
 	public static ArrayList<Person> getListe() {
 		return Liste;
 	}
